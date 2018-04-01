@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "author": "zhaojianxin <215696013@qq.com>",
   "license": "MIT",
-  "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --watch --open --hot --config ./build/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=production node ./build/build.js"
