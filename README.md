@@ -1,3 +1,12 @@
+
+[![GitHub issues](https://img.shields.io/github/issues/JesseZhao1990/vue-lazy-load-list.svg)](https://github.com/JesseZhao1990/vue-lazy-load-list/issues)
+
+
+[![GitHub license](https://img.shields.io/github/license/JesseZhao1990/vue-lazy-load-list.svg)](https://github.com/JesseZhao1990/vue-lazy-load-list)
+
+![](https://img.shields.io/badge/node-%3E%3D%206.0.0-brightgreen.svg)
+
+
 # vue-lazy-load-list
 
 > A Vue.js project
@@ -15,4 +24,5 @@ npm run dev
 npm run build
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## LICENSE
+MIT
