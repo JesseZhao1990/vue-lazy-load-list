@@ -72,7 +72,7 @@ export default {
 
     return {
       // 经过整理变形成map之后的data
-      mapData: {},
+      dataMap: {},
       // on-demand render the list
       renderList: [],
       scrollTop: 0,
@@ -177,7 +177,7 @@ export default {
         const selfId = parentId ? `${parentId}-${itemIndex}`:`${itemIndex}`;
         dataMap[count] = Object.assign({},item,
         {
-          id:selfId,
+          autoId:selfId,
           level
         });
         if(item.children && item.children.length>0){
@@ -191,13 +191,12 @@ export default {
       }
       dataMap.length = count;
       this.dataMap = dataMap;
-
     },
 
     changeHander($event) {
       const {value} = $event.target;
       const nextData = this.getFiltersData(value);
-      this.mapData = this.convertData(nextData);
+      this.convertData(nextData);
       this.initRenderList();
       this.updateScrollbar();
     },
@@ -205,11 +204,10 @@ export default {
     // 根据传入的搜索词过滤data，并返回过滤之后的data
     getFiltersData(v) {
       const self = this;
-
       function isPass(d){
         return self.searchKeys.some(k => {
           if(d[k]){
-            return d[k].indexOf(v)>-1 ;
+            return d[k].indexOf(String(v))>-1 ;
           }else{
             return false;
           }
@@ -298,7 +296,7 @@ export default {
             } else if(this.$scopedSlots.default) {
               return this.$scopedSlots.default(this.dataMap[i]);
             }else{
-              return [this.dataMap[i].id]
+              return [this.dataMap[i].autoId]
             }
           })()
           ),);
@@ -345,7 +343,7 @@ export default {
             } else if(this.$scopedSlots.default) {
               return this.$scopedSlots.default(this.dataMap[i]);
             }else{
-              return [this.dataMap[i].id]
+              return [this.dataMap[i].autoId]
             }
           })()
           ),);

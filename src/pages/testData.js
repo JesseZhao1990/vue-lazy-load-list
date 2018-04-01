@@ -1,9 +1,9 @@
 function generateChildren(){
   let a = [];
-  for(var i=0;i<90;i++){
+  for(var i=0;i<90000;i++){
     a.push({
-      id:`1-2${i}`,
-      name:`1-2${i}`,
+      id:`1-2-${i}`,
+      name:`1-2-${i}`,
       level:3,
     })
   }

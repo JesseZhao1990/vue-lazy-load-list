@@ -15,6 +15,9 @@
     <template slot-scope="item" slot="3">
         <div :style="{paddingLeft:'50px'}">{{item.id}}</div>
     </template>
+    <template slot-scope="item" slot="4">
+        <div :style="{paddingLeft:'50px'}">{{item.id}}</div>
+    </template>
   </lazy-load-list>
 </div>
 </template>
