@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../lib'),
     publicPath: '/lib/',
-    filename: 'index.min.js',
+    filename: 'index.js',
     library: 'VueLazyLoadList',
     libraryTarget: 'umd',
     umdNamedDefine: true
