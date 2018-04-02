@@ -21,7 +21,7 @@ describe('vl-load-list', () => {
     describe('render correct', () => {
         const vm = createVM({
             template: `
-                <vue-lazy-load-list :data="testData" height="400" item-height="50"></vue-lazy-load-list>
+                <lazy-load-list :data="testData" height="400" item-height="50"></lazy-load-list>
             `,
 
             created () {
