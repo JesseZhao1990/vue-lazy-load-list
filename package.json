@@ -10,6 +10,10 @@
     "build": "cross-env NODE_ENV=production node ./build/build.js",
     "test": "karma start test/unit/karma.conf.js --single-run"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JesseZhao1990/vue-lazy-load-list.git"
+  },
   "dependencies": {
     "beautify-scrollbar": "^1.0.5",
     "lodash": "^4.17.5",

@@ -7,7 +7,7 @@ const VOEWPORT_MIN_HEIGHT = 100;
 const ITEM_MIN_HEIGHT = 20;
 
 export default {
-  name: 'vueLazyLoadList',
+  name: 'lazyLoadList',
   props: {
     data: {
       type: Array,
