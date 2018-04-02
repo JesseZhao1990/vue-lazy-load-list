@@ -1,7 +1,7 @@
 {
   "name": "vue-lazy-load-list",
   "description": "a componets of vue for lazy load or lazy render",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "zhaojianxin <215696013@qq.com>",
   "license": "MIT",
   "main": "lib/index.js",
