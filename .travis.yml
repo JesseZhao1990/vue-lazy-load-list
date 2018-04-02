@@ -14,7 +14,7 @@ before_install:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 script:
-  # - npm run test
+  - npm run test
   - npm run build:exam
 after_script:
   - cd ./public
@@ -22,10 +22,8 @@ after_script:
   - git config user.email "215696013@qq.com"
   - git clone git@github.com:JesseZhao1990/JesseZhao1990.github.io.git
   - rm -rf ./JesseZhao1990.github.io/vue-lazy-load-list
-  - cp -r  dist   ./JesseZhao1990.github.io/vue-lazy-load-list
+  - cp -r  /home/travis/build/JesseZhao1990/vue-lazy-load-list/dist   ./JesseZhao1990.github.io/vue-lazy-load-list
   - cd JesseZhao1990.github.io
-  - ls
-  - git status
   - git add .
   - git commit -m "update"
   - git push --force --quiet
