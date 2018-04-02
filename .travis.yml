@@ -27,9 +27,12 @@ after_script:
   - touch test.txt
   - git add .
   - git commit -m "update"
-  - git push --force --quiet
+  - git push --force --quiet "https://${gh_taken}@${GH_REF}" master:master
 branches:
   only:
   - master
 node_js:
   - '8'
+env:
+ global:
+   - GH_REF: github.com/JesseZhao1990/JesseZhao1990.github.io.git
