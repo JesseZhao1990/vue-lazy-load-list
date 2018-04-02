@@ -17,7 +17,7 @@ const getTestData = function () {
     }]
 };
 
-describe('vue-lazy-load-list', () => {
+describe('vl-load-list', () => {
     describe('render correct', () => {
         const vm = createVM({
             template: `
@@ -30,7 +30,7 @@ describe('vue-lazy-load-list', () => {
         });
 
         it('how many items', done => {
-          expect(vm.$el.querySelectorAll('.lazy-list-item').length).to.be.equal(6);
+          expect(vm.$el.querySelectorAll('.vl-list-item').length).to.be.equal(6);
           done();
         });
     });

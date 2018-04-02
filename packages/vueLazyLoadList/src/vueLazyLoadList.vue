@@ -128,7 +128,7 @@ export default {
         placeholder:'请输入关键字进行搜索',
       },
       class: {
-        'v2-lazy-search': true,
+        'vl-search': true,
       },
       on: {
         input: debounce(this.changeHander,500)
@@ -141,7 +141,7 @@ export default {
 
     const children = h(this.tag, {
       class: {
-        'v2-lazy': true,
+        'vl': true,
       },
       style: {
         marginTop: `${this.contentMarginTop}px`,
@@ -150,7 +150,7 @@ export default {
 
     const listWrap =  h('div', {
       class: {
-        'v2-lazy-wrap': true,
+        'vl-wrap': true,
       },
       style: {
         height: this.isPercent ? this.viewportHeight : `${this.viewportHeight}px`,
@@ -277,7 +277,7 @@ export default {
         if (typeof this.dataMap[i] !== 'undefined') {
           list.push(this.$h(this.itemTag, {
             class: {
-              'lazy-list-item': true,
+              'vl-list-item': true,
             },
             style: hasSlots ?
             {
@@ -324,7 +324,7 @@ export default {
         if (typeof this.dataMap[i] !== 'undefined') {
           list.push(this.$h(this.itemTag, {
             class: {
-              'lazy-list-item': true,
+              'vl-list-item': true,
             },
             style: hasSlots ?
             {
@@ -374,13 +374,13 @@ export default {
   // 组件mounted之后 加工数据、计算视图、初始化nodeList、创建滚动条、绑定滚动和调整窗口事件
   mounted() {
     this.convertData(this.data);
-    this.$listWrap = this.$el.getElementsByClassName("v2-lazy-wrap")[0];
+    this.$listWrap = this.$el.getElementsByClassName("vl-wrap")[0];
     this.viewportWith = this.$el.clientWidth;
     this.wrapRect = this.$el.getBoundingClientRect();
 
     this.dataMap.length && this.initRenderList();
     this.$nextTick(() => {
-      this.$listWrap = this.$el.getElementsByClassName("v2-lazy-wrap")[0];
+      this.$listWrap = this.$el.getElementsByClassName("vl-wrap")[0];
       this.scrollbar = new BeautifyScrollbar(this.$listWrap, {
         contentWidth: this.contentWidth,
         contentHeight: this.contentHeight,
@@ -400,7 +400,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-  .v2-lazy-wrap {
+  .vl-wrap {
       position: relative;
       box-sizing: border-box;
       width: 100%;
@@ -411,22 +411,7 @@ export default {
           list-style: none;
       }
   }
-
-  .v2-lazy-search{
-    -webkit-appearance: none;
-    background-color: #fff;
-    background-image: none;
-    border-radius: 4px;
-    border: 1px solid #dcdfe6;
-    color: #606266;
-    display: inline-block;
-    font-size: inherit;
-    outline: none;
-    width: 100%;
-    height: 100%;
-  }
-
-  .v2-lazy {
+  .vl {
       position: relative;
       width: 100%;
       height: 100%;
@@ -437,7 +422,29 @@ export default {
       display: block;
   }
 
-  .lazy-list-item {
+  .vl-search{
+    -webkit-appearance: none;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+    display: inline-block;
+    font-size: inherit;
+    box-sizing: border-box;
+    padding: 0 15px;
+    width: 100%;
+    height: 100%;
+    &:hover{
+      border-color: #c0c4cc;
+    }
+    &:focus{
+      outline: none;
+      border-color: #409eff;
+    }
+  }
+
+  .vl-list-item {
       position: relative;
       text-align: left;
       display: block;
