@@ -24,6 +24,7 @@ after_script:
   - rm -rf ./JesseZhao1990.github.io/vue-lazy-load-list
   - cp -r  /home/travis/build/JesseZhao1990/vue-lazy-load-list/dist   ./JesseZhao1990.github.io/vue-lazy-load-list
   - cd JesseZhao1990.github.io
+  - touch test.txt
   - git add .
   - git commit -m "update"
   - git push --force --quiet
