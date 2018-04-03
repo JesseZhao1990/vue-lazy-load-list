@@ -67,7 +67,9 @@ module.exports = {
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
-      'process.env': "production"
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
     }),
     new UglifyJsPlugin({
       uglifyOptions: {
