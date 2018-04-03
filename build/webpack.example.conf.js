@@ -19,20 +19,24 @@ module.exports = {
     rules: [
       {
         test: /\.less$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          'postcss-loader',
-          'less-loader'
-        ],
+        use: {
+          loader: 'less-loader',
+          options:{
+            sourceMap: true
+          }
+        },
       },
       {
         test: /\.css$/,
-        use: [
-          'vue-style-loader',
-          'css-loader'
-        ],
-      },      {
+        use: {
+          loader: 'css-loader',
+          options:{
+            minimize: true, 
+            sourceMap: true
+          }
+        }
+      },      
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
@@ -50,6 +54,14 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'fonts/[name].[hash:7].[ext]'
         }
       }
     ]

@@ -1,16 +1,20 @@
 <template>
   <div id="app">
-    <test/>
+    <exam-header></exam-header>
+    <demo1/>
+    <demo2/>
   </div>
 </template>
 
 <script>
-import test from './pages/test.vue';
+import demo1 from './pages/demo1.vue';
+import demo2 from './pages/demo2.vue';
 
 export default {
   name: 'app',
   components:{
-    test,
+    demo1,
+    demo2,
   },
   data () {
     return {
@@ -21,12 +25,11 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  padding: 20px;
 }
 
 h1, h2 {
@@ -45,5 +48,13 @@ li {
 
 a {
   color: #42b983;
+}
+pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f6f8fa;
+    border-radius: 3px;
 }
 </style>

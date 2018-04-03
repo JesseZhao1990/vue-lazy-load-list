@@ -17,8 +17,12 @@
   },
   "dependencies": {
     "beautify-scrollbar": "^1.0.5",
+    "element-ui": "^2.3.2",
     "lodash": "^4.17.5",
-    "vue": "^2.5.11"
+    "normalize.css": "^8.0.0",
+    "url-loader": "^1.0.1",
+    "vue": "^2.5.11",
+    "vue-i18n": "^7.6.0"
   },
   "peerDevDependencies": {
     "beautify-scrollbar": "^1.0.5",
