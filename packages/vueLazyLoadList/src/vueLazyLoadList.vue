@@ -189,7 +189,7 @@ export default {
       for(let j=0;j<data.length;j++){
         mark(data[j],1,null,j+1);
       }
-      dataMap.length = count;
+      dataMap.length = count+1;
       this.dataMap = dataMap;
     },
 
@@ -402,7 +402,7 @@ export default {
 <style lang="less" scoped>
   .vl-wrap {
       position: relative;
-      box-sizing: border-box;
+      box-sizing: content-box;
       width: 100%;
       overflow: hidden;
       border: 1px solid #ebeef5;

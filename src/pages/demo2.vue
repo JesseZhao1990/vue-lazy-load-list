@@ -13,7 +13,7 @@
         <lazy-load-list
           :searchKeys="searchKeys"
           :data="dataList"
-          height="200"
+          height="270"
           :item-height="30"
         >
           <template slot-scope="item" slot="1">
