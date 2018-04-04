@@ -15,6 +15,7 @@
           :data="dataList"
           height="270"
           :item-height="30"
+          @reach-threshold="threshold"
         >
           <template slot-scope="item" slot="1">
               <div :style="{paddingLeft:'10px'}">{{item.name}}</div>
@@ -86,10 +87,13 @@ const demoCode = '<template>\n'+
     created() {
       this.dataList = mockData;
     },
+    methods:{
+      threshold(e){
+        console.log(e);
+      }
+    }
   }
 </script>
 <style lang="less" scoped>
-.demo{
-}
 </style>
 

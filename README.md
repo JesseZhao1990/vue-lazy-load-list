@@ -32,6 +32,16 @@ Vue.use(lazyLoadList);
 ```
 
 [更详细的例子](https://jessezhao1990.github.io/vue-lazy-load-list/)
+
+
+## Attributes
+
+| 参数      |      类型    |是否必填|   可选值  |  默认值    | 说明 | 
+|-----------|-----------|--------|----------|---------|--------|
+| data      |     Array   |    是   |  ————    |     []    |  一个数组，数组里的各个item为对象，对象里可以有children ，children必须是个数组，数组里的各个item为对象，可以这样一直嵌套下去，对深度没什么限制，这表示，你不仅可以做一个只有一层的列表，也可以做深层嵌套的列表|
+| height    |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |
+
 ## Build Setup
 
 ``` bash
