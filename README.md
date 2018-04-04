@@ -3,20 +3,19 @@
 
 
 # vue-lazy-load-list
-
+[中文文档](https://github.com/JesseZhao1990/vue-lazy-load-list/blob/master/README.CN.md)
 >
+A lazy load component of vue. when a list or nested list is very large, the browser can't carry it if we render all list data. this component is used to solve those problems. we render data we can see right now not the future data.
 
-一个vue的懒加载组件，当一个list或者一个多级的list的数据非常庞大的时候，如果不做局部渲染或者懒加载，浏览器是扛不住的。此组件就是解决这样的问题的，只会渲染视图区中的要呈现的数据，而不是把所有数据一下子全部渲染。
-
-## 安装
+## Install
 
 ```
 npm install --save vue-lazy-load-list beautify-scrollbar
 
 ```
-## 使用
+## Registor
 
-main文件中注册
+
 ```
 import Vue from 'vue';
 import 'beautify-scrollbar/dist/index.css';
@@ -25,22 +24,33 @@ import lazyLoadList from 'vue-lazy-load-list';
 Vue.use(lazyLoadList);
 ```
 
-在组件中直接使用
+## Used in componet
 
 ```
 <lazy-load-list :data="data"></lazy-load-list>
 ```
 
-[更详细的例子](https://jessezhao1990.github.io/vue-lazy-load-list/)
+[details](https://jessezhao1990.github.io/vue-lazy-load-list/)
 
 
 ## Attributes
 
-| 参数      |      类型    |是否必填|   可选值  |  默认值    | 说明 | 
+| props      |      type    | requred |   optional  |  default  | details |
 |-----------|-----------|--------|----------|---------|--------|
-| data      |     Array   |    是   |  ————    |     []    |  一个数组，数组里的各个item为对象，对象里可以有children ，children必须是个数组，数组里的各个item为对象，可以这样一直嵌套下去，对深度没什么限制，这表示，你不仅可以做一个只有一层的列表，也可以做深层嵌套的列表|
-| height    |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
+| data      |     Array   |    yes  |  ————    |     []    |  a list or a nested list. you should be noticed that the item of list shold be an object. if any object's keys include children, this children also should be a list with it's items is object too. and so on ...  |
+| height    |   Number or String   |   no | ———— | 100px | the height of this component |
+| itemHeight | Number or String |  no | —————— | 40px | the height of each item  |
+| mode    |  String | no  |  'demand' or 'lazy' | 'demand' | render mode. when it was set to demand, this componet will only render that demanded data. when those items was scrolled up, they will be removed from DOM. when it was set to lazy, those items was scrolled up is still in DOM. |
+| searchKeys  |  Array | yes | —————— | [] | when we enter some words we search, componets will use the value of keys in searchKeys to filter |
+| threshold  | Number or String | no | —————— | 0 | when reach that point which distance to the end is 'threshold' px, the component will emit a event named reach-threshold |
+| tag | String | no | ——————| ‘div’ | dom name of list wrap |
+| itemTag | String | no | ——————| ‘div’ | dom name of item |
+
+## Event
+| props      |      type    | requred |   optional  |  default  | details |
+|-----------|-----------|--------|----------|---------|--------|
+| reach-threshold | Function | no | ———— | nothing | when reach that point which distance to the end is 'threshold' px, the component will emit this event |
+
 
 ## Build Setup
 
