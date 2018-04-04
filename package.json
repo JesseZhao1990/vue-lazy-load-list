@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --watch --open --hot --config ./build/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=production node ./build/build.js",
-    "build:exam": "cross-env NODE_ENV=production webpack --config ./build/webpack.example.conf.js",
+    "build:exam": "rimraf dist && cross-env NODE_ENV=production webpack --config ./build/webpack.example.conf.js",
     "test": "karma start test/unit/karma.conf.js --single-run"
   },
   "repository": {

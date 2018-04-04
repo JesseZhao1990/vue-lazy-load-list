@@ -7,35 +7,16 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
-module.exports = {
+let webpackCfg = {
   context: path.resolve(__dirname, '../'),
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '',
-    filename: '[name].js'
+    filename: '[name].[hash].js'
   },
   module: {
-    rules: [
-      {
-        test: /\.less$/,
-        use: {
-          loader: 'less-loader',
-          options:{
-            sourceMap: true
-          }
-        },
-      },
-      {
-        test: /\.css$/,
-        use: {
-          loader: 'css-loader',
-          options:{
-            minimize: true, 
-            sourceMap: true
-          }
-        }
-      },      
+    rules: [     
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -94,7 +75,7 @@ module.exports = {
     }),
     // extract css into its own file
     new ExtractTextPlugin({
-      filename: '/static/css/[name].[contenthash].css',
+      filename: '/css/[name].[contenthash].css',
       // Setting the following option to `false` will not extract CSS from codesplit chunks.
       // Their CSS will instead be inserted dynamically with style-loader when the codesplit chunk has been loaded by webpack.
       // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`,
@@ -167,3 +148,9 @@ module.exports = {
     // ])
   ]
 }
+webpackCfg.module.rules = webpackCfg.module.rules.concat(utils.styleLoaders({
+  sourceMap: true,
+  extract: true
+}))
+
+module.exports = webpackCfg;
