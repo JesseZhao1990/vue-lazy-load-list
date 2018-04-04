@@ -42,7 +42,7 @@ let webpackCfg = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'fonts/[name].[hash:7].[ext]'
+          name: '[name].[hash:7].[ext]'
         }
       }
     ]
@@ -75,7 +75,7 @@ let webpackCfg = {
     }),
     // extract css into its own file
     new ExtractTextPlugin({
-      filename: '/css/[name].[contenthash].css',
+      filename: '[name].[contenthash].css',
       // Setting the following option to `false` will not extract CSS from codesplit chunks.
       // Their CSS will instead be inserted dynamically with style-loader when the codesplit chunk has been loaded by webpack.
       // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`,
