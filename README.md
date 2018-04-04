@@ -31,7 +31,7 @@ Vue.use(lazyLoadList);
 <lazy-load-list :data="data"></lazy-load-list>
 ```
 
-
+[更详细的例子](https://jessezhao1990.github.io/vue-lazy-load-list/)
 ## Build Setup
 
 ``` bash
