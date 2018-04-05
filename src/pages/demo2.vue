@@ -9,11 +9,11 @@
           <div v-text="demoCode"></div>
         </pre>
       </div>
-      <div>
+      <div :style="{height:'800px'}">
         <lazy-load-list
           :searchKeys="searchKeys"
           :data="dataList"
-          height="270"
+          height="50%"
           :item-height="30"
           @reach-threshold="threshold"
         >
@@ -23,7 +23,7 @@
           <template slot-scope="item" slot="2">
               <div :style="{paddingLeft:'30px'}">{{item.name}}</div>
           </template>
-        </lazy-load-list>        
+        </lazy-load-list>
       </div>
     </div>
 </div>
@@ -48,7 +48,7 @@ const demoCode = '<template>\n'+
 '      <template slot-scope="item" slot="2">\n'+
 `          <div :style="{paddingLeft:'30px'}">{{item.name}}</div>\n`+
 '      </template>\n'+
-'    </lazy-load-list>\n'+  
+'    </lazy-load-list>\n'+
 '  </div>\n'+
 '</template>\n'+
 '<script>\n'+
@@ -67,7 +67,7 @@ const demoCode = '<template>\n'+
 '      return {\n'+
 `        searchKeys:['name'],\n`+
 '        dataList,\n'+
-'      }\n'+    
+'      }\n'+
 '  }\n'+
 '}\n'+
 `< /script>\n`+

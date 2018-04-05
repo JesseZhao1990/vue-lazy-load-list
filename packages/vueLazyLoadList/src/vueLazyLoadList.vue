@@ -49,6 +49,11 @@ export default {
     searchKeys:{
       type: Array,
       default:[],
+    },
+
+    hasSearchInput:{
+      type: Boolean,
+      default: true
     }
   },
 
@@ -57,17 +62,17 @@ export default {
     const searchHeight = 30;
     // 列表距离搜索框的距离
     const listMarginTop = 15;
-    const listHeight = this.height-searchHeight-listMarginTop;
+    // props的height的单位是否是百分比
+    const isPercent = String(this.height).indexOf('%') > -1;
 
+    // 列表视图的高度
+    let vh = Number.parseInt(this.height, 10);;
     const ih = Number.parseInt(this.itemHeight, 10);
-    const isPercent = String(listHeight).indexOf('%') > -1;
-
-    let vh = Number.parseInt(listHeight, 10);
 
     if (isPercent) {
-      vh = listHeight;
+      vh = this.height;
     } else {
-      vh = (Number.isNaN(vh) || vh < VOEWPORT_MIN_HEIGHT) ? VOEWPORT_MIN_HEIGHT : listHeight;
+      vh = (Number.isNaN(vh) || vh < VOEWPORT_MIN_HEIGHT) ? VOEWPORT_MIN_HEIGHT : vh;
     }
 
     return {
@@ -76,6 +81,7 @@ export default {
       // on-demand render the list
       renderList: [],
       scrollTop: 0,
+
       isPercent,
 
       // 搜索框的高度
@@ -266,7 +272,8 @@ export default {
     // 生成demand模式下的nodeList
     getDemandList() {
       const list = [];
-      const vh = this.isPercent ? this.wrapRect.height : this.viewportHeight;
+      console.log(this.wrapRect.height);
+      const vh = this.isPercent ? this.wrapRect.height : this.viewportHeight + 2;
 
       const from = Math.floor(this.scrollTop / this.ih);
       const to = Math.ceil((this.scrollTop + vh) / this.ih);
@@ -275,7 +282,8 @@ export default {
 
       for (let i = from; i < to; i++) {
         if (typeof this.dataMap[i] !== 'undefined') {
-          list.push(this.$h(this.itemTag, {
+
+          const listItem = this.$h(this.itemTag, {
             class: {
               'vl-list-item': true,
             },
@@ -299,7 +307,9 @@ export default {
               return [this.dataMap[i].autoId]
             }
           })()
-          ),);
+          );
+
+          list.push(listItem);
         }
       }
       this.contentMarginTop = from * this.ih;
@@ -313,7 +323,7 @@ export default {
       }
 
       const list = [].concat(this.renderList);
-      const vh = this.isPercent ? this.wrapRect.height : this.viewportHeight;
+      const vh = this.isPercent ? this.wrapRect.height : this.viewportHeight+2;
 
       const from = list.length;
       const to = Math.ceil((this.scrollTop + vh) / this.ih);
@@ -322,7 +332,7 @@ export default {
 
       for (let i = from; i < to; i++) {
         if (typeof this.dataMap[i] !== 'undefined') {
-          list.push(this.$h(this.itemTag, {
+          const listItem = this.$h(this.itemTag, {
             class: {
               'vl-list-item': true,
             },
@@ -346,7 +356,8 @@ export default {
               return [this.dataMap[i].autoId]
             }
           })()
-          ),);
+          )
+          list.push(listItem);
         }
       }
       this.contentMarginTop = 0;
@@ -363,7 +374,9 @@ export default {
 
     // 窗口resize之后的处理函数
     handleWinResize() {
-      this.wrapRect = this.$el.getBoundingClientRect();
+      this.wrapRect = this.$el.getElementsByClassName("vl-wrap")[0] ?
+      this.$el.getElementsByClassName("vl-wrap")[0].getBoundingClientRect()
+      : this.$el.getBoundingClientRect();
       if (this.scrollbar.rect.height !== this.wrapRect.height) {
         this.updateRenderList();
         this.updateScrollbar();
@@ -376,8 +389,11 @@ export default {
     this.convertData(this.data);
     this.$listWrap = this.$el.getElementsByClassName("vl-wrap")[0];
     this.viewportWith = this.$el.clientWidth;
-    this.wrapRect = this.$el.getBoundingClientRect();
-
+    // this.wrapRect = this.$el.getBoundingClientRect();
+    this.wrapRect = this.$el.getElementsByClassName("vl-wrap")[0] ?
+      this.$el.getElementsByClassName("vl-wrap")[0].getBoundingClientRect()
+      : this.$el.getBoundingClientRect();
+    console.log(this.$el.parentNode.getBoundingClientRect());
     this.dataMap.length && this.initRenderList();
     this.$nextTick(() => {
       this.$listWrap = this.$el.getElementsByClassName("vl-wrap")[0];
@@ -402,7 +418,7 @@ export default {
 <style lang="less" scoped>
   .vl-wrap {
       position: relative;
-      box-sizing: content-box;
+      box-sizing: content-box !important;
       width: 100%;
       overflow: hidden;
       border: 1px solid #ebeef5;
@@ -417,7 +433,7 @@ export default {
       height: 100%;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      box-sizing: content-box !important;
       border: none;
       display: block;
   }

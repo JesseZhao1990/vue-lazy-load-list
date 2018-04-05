@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
-import 'beautify-scrollbar/dist/index.css';
+import 'beautify-scrollbar/dist/index.css'
 import 'normalize.css'
 import 'element-ui/lib/theme-chalk/index.css'
+import 'animate.css'
 import ElementUI from 'element-ui'
 import App from './App.vue'
 import examHeader from './components/header/index'
