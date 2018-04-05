@@ -2,6 +2,7 @@
 /* eslint-disable */
 import BeautifyScrollbar from 'beautify-scrollbar';
 import { debounce } from 'lodash';
+import * as utils from './utils';
 
 const VOEWPORT_MIN_HEIGHT = 100;
 const ITEM_MIN_HEIGHT = 20;
@@ -100,7 +101,12 @@ export default {
       contentMarginTop: 0,
 
       scrollbar: null,
+
+      // list 列表的包裹元素的rect
       wrapRect: null,
+
+      // 此组件的父元素的rect
+      parentNodeRect: null,
     };
   },
 
@@ -165,7 +171,9 @@ export default {
     }, [children]);
 
     const container = h("div",{
-
+      style: {
+        height: '100%',
+      },
     },[search,listWrap])
 
     return container;
@@ -271,11 +279,14 @@ export default {
 
     // 生成demand模式下的nodeList
     getDemandList() {
+
       const list = [];
-      console.log(this.wrapRect.height);
-      const vh = this.isPercent ? this.wrapRect.height : this.viewportHeight + 2;
+      const vh = this.isPercent ?
+        this.parentNodeRect.height * utils.toPoint(this.height)
+        : this.viewportHeight + 2;
 
       const from = Math.floor(this.scrollTop / this.ih);
+
       const to = Math.ceil((this.scrollTop + vh) / this.ih);
 
       const hasSlots = Object.keys(this.$scopedSlots).length>0 ? true : false;
@@ -323,7 +334,9 @@ export default {
       }
 
       const list = [].concat(this.renderList);
-      const vh = this.isPercent ? this.wrapRect.height : this.viewportHeight+2;
+      const vh = this.isPercent ?
+        this.parentNodeRect.height * utils.toPoint(this.height)
+        : this.viewportHeight + 2;
 
       const from = list.length;
       const to = Math.ceil((this.scrollTop + vh) / this.ih);
@@ -374,6 +387,7 @@ export default {
 
     // 窗口resize之后的处理函数
     handleWinResize() {
+      this.parentNodeRect = this.$el.parentNode.getBoundingClientRect();
       this.wrapRect = this.$el.getElementsByClassName("vl-wrap")[0] ?
       this.$el.getElementsByClassName("vl-wrap")[0].getBoundingClientRect()
       : this.$el.getBoundingClientRect();
@@ -389,11 +403,7 @@ export default {
     this.convertData(this.data);
     this.$listWrap = this.$el.getElementsByClassName("vl-wrap")[0];
     this.viewportWith = this.$el.clientWidth;
-    // this.wrapRect = this.$el.getBoundingClientRect();
-    this.wrapRect = this.$el.getElementsByClassName("vl-wrap")[0] ?
-      this.$el.getElementsByClassName("vl-wrap")[0].getBoundingClientRect()
-      : this.$el.getBoundingClientRect();
-    console.log(this.$el.parentNode.getBoundingClientRect());
+    this.parentNodeRect = this.$el.parentNode.getBoundingClientRect();
     this.dataMap.length && this.initRenderList();
     this.$nextTick(() => {
       this.$listWrap = this.$el.getElementsByClassName("vl-wrap")[0];

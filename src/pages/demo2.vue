@@ -13,7 +13,7 @@
         <lazy-load-list
           :searchKeys="searchKeys"
           :data="dataList"
-          height="50%"
+          height="300"
           :item-height="30"
           @reach-threshold="threshold"
         >
