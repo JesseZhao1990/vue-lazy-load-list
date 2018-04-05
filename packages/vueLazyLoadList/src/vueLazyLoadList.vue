@@ -166,15 +166,16 @@ export default {
       },
       style: {
         height: this.isPercent ? this.viewportHeight : `${this.viewportHeight}px`,
-        marginTop : `${this.listMarginTop}px`
+        marginTop : this.hasSearchInput ? `${this.listMarginTop}px` :'0'
       },
     }, [children]);
 
+    const containerChildren = this.hasSearchInput ? [search,listWrap] : [listWrap]
     const container = h("div",{
       style: {
         height: '100%',
       },
-    },[search,listWrap])
+    },containerChildren)
 
     return container;
 

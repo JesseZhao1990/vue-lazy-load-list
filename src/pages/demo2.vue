@@ -12,6 +12,7 @@
       <div :style="{height:'800px'}">
         <lazy-load-list
           :searchKeys="searchKeys"
+          :hasSearchInput = "false"
           :data="dataList"
           height="300"
           :item-height="30"
