@@ -39,7 +39,7 @@ Vue.use(lazyLoadList);
 | 参数      |      类型    |是否必填|   可选值  |  默认值    | 说明 |
 |-----------|-----------|--------|----------|---------|--------|
 | data      |     Array   |    是   |  ————    |     []    |  一个数组，数组里的各个item为对象，对象里可以有children ，children必须是个数组，数组里的各个item为对象，可以这样一直嵌套下去，对深度没什么限制，这表示，你不仅可以做一个只有一层的列表，也可以做深层嵌套的列表|
-| height    |   Number 或 String   |   否 | ———— | 100px | 组件中列表的高度 |
+| listHeight    |   Number 或 String   |   否 | ———— | 100px | 组件中列表的高度 |
 | itemHeight | Number 或 String |  否 | ———— | 40px | 组件的列表中的每个item的高度  |
 | mode    |  String | 否  |  'demand' 或 'lazy' | 'demand' | 渲染模式，当是demo模式时，滚上去的区域会从dom中移除，lazy模式不会移除 |
 | searchKeys  |  Array | 否 | ———— | [] | 搜索的时候对哪些字段进行搜索 |

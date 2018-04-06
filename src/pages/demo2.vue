@@ -14,8 +14,8 @@
           :searchKeys="searchKeys"
           :hasSearchInput = "false"
           :data="dataList"
-          height="300"
-          :item-height="30"
+          listHeight="300"
+          :itemHeight="30"
           @reach-threshold="threshold"
         >
           <template slot-scope="item" slot="1">

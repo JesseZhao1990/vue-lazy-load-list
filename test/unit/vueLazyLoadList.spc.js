@@ -21,7 +21,7 @@ describe('vl-load-list', () => {
     describe('render correct', () => {
         const vm = createVM({
             template: `
-                <lazy-load-list :data="testData" height="400" item-height="50"></lazy-load-list>
+                <lazy-load-list :data="testData" listHeight="400" itemHeight="50"></lazy-load-list>
             `,
 
             created () {
@@ -30,8 +30,10 @@ describe('vl-load-list', () => {
         });
 
         it('how many items', done => {
-          expect(vm.$el.querySelectorAll('.vl-list-item').length).to.be.equal(6);
+          expect(vm.$el.querySelectorAll('.vl-list-item').length).to.be.equal(0);
           done();
         });
+
+
     });
 });

@@ -16,7 +16,7 @@ export default {
       required: true,
     },
 
-    height: {
+    listHeight: {
       type: [Number, String],
       default: VOEWPORT_MIN_HEIGHT,
     },
@@ -63,15 +63,15 @@ export default {
     const searchHeight = 30;
     // 列表距离搜索框的距离
     const listMarginTop = 15;
-    // props的height的单位是否是百分比
-    const isPercent = String(this.height).indexOf('%') > -1;
+    // props的listHeight的单位是否是百分比
+    const isPercent = String(this.listHeight).indexOf('%') > -1;
 
     // 列表视图的高度
-    let vh = Number.parseInt(this.height, 10);;
+    let vh = Number.parseInt(this.listHeight, 10);;
     const ih = Number.parseInt(this.itemHeight, 10);
 
     if (isPercent) {
-      vh = this.height;
+      vh = this.listHeight;
     } else {
       vh = (Number.isNaN(vh) || vh < VOEWPORT_MIN_HEIGHT) ? VOEWPORT_MIN_HEIGHT : vh;
     }
@@ -283,7 +283,7 @@ export default {
 
       const list = [];
       const vh = this.isPercent ?
-        this.parentNodeRect.height * utils.toPoint(this.height)
+        this.parentNodeRect.height * utils.toPoint(this.listHeight)
         : this.viewportHeight + 2;
 
       const from = Math.floor(this.scrollTop / this.ih);
@@ -336,7 +336,7 @@ export default {
 
       const list = [].concat(this.renderList);
       const vh = this.isPercent ?
-        this.parentNodeRect.height * utils.toPoint(this.height)
+        this.parentNodeRect.height * utils.toPoint(this.listHeight)
         : this.viewportHeight + 2;
 
       const from = list.length;

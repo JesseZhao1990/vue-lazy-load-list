@@ -38,7 +38,7 @@ Vue.use(lazyLoadList);
 | props      |      type    | requred |   optional  |  default  | details |
 |-----------|-----------|--------|----------|---------|--------|
 | data      |     Array   |    yes  |  ————    |     []    |  a list or a nested list. you should be noticed that the item of list shold be an object. if any object's keys include children, this children also should be a list with it's items is object too. and so on ...  |
-| height    |   Number or String   |   no | ———— | 100px | the height of list in this component |
+| listHeight    |   Number or String   |   no | ———— | 100px | the height of list in this component |
 | itemHeight | Number or String |  no | ———— | 40px | the height of each item  |
 | mode    |  String | no  |  'demand' or 'lazy' | 'demand' | render mode. when it was set to demand, this componet will only render that demanded data. when those items was scrolled up, they will be removed from DOM. when it was set to lazy, those items was scrolled up is still in DOM. |
 | searchKeys  |  Array | no | ———— | [] | when we enter some words we search, componets will use the value of keys in searchKeys to filter |
