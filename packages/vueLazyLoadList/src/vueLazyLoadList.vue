@@ -388,7 +388,7 @@ export default {
 
     // 窗口resize之后的处理函数
     handleWinResize() {
-      this.parentNodeRect = this.$el.parentNode.getBoundingClientRect();
+      this.parentNodeRect = this.$el.getBoundingClientRect();
       this.wrapRect = this.$el.getElementsByClassName("vl-wrap")[0] ?
       this.$el.getElementsByClassName("vl-wrap")[0].getBoundingClientRect()
       : this.$el.getBoundingClientRect();
@@ -399,12 +399,16 @@ export default {
     },
   },
 
-  // 组件mounted之后 加工数据、计算视图、初始化nodeList、创建滚动条、绑定滚动和调整窗口事件
-  mounted() {
+  // 组件created之后加工数据
+  created(){
     this.convertData(this.data);
+  },
+
+  // 组件mounted之后、计算视图、初始化nodeList、创建滚动条、绑定滚动和调整窗口事件
+  mounted() {
     this.$listWrap = this.$el.getElementsByClassName("vl-wrap")[0];
     this.viewportWith = this.$el.clientWidth;
-    this.parentNodeRect = this.$el.parentNode.getBoundingClientRect();
+    this.parentNodeRect = this.$el.getBoundingClientRect();
     this.dataMap.length && this.initRenderList();
     this.$nextTick(() => {
       this.$listWrap = this.$el.getElementsByClassName("vl-wrap")[0];
