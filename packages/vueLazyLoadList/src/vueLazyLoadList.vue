@@ -64,10 +64,6 @@ export default {
   },
 
   data() {
-    // 搜索框的高度
-    const searchHeight = 30;
-    // 列表距离搜索框的距离
-    const listMarginTop = 15;
     // props的listHeight的单位是否是百分比
     const isPercent = String(this.listHeight).indexOf('%') > -1;
 
@@ -89,11 +85,6 @@ export default {
       scrollTop: 0,
 
       isPercent,
-
-      // 搜索框的高度
-      searchHeight,
-      // 列表距离搜索框的高度
-      listMarginTop,
 
       // outside viewport
       viewportWith: 0,
@@ -149,11 +140,7 @@ export default {
       },
       on: {
         input: debounce(this.changeHander,500)
-      },
-      style: {
-        height: `${this.searchHeight}px`,
-        lineHeight: `${this.searchHeight}px`,
-      },
+      }
     },[]);
 
     const children = h(this.tag, {
@@ -171,7 +158,6 @@ export default {
       },
       style: {
         height: this.isPercent ? this.viewportHeight : `${this.viewportHeight}px`,
-        marginTop : this.hasSearchInput ? `${this.listMarginTop}px` :'0'
       },
     }, [children]);
 
@@ -470,7 +456,8 @@ export default {
     box-sizing: border-box;
     padding: 0 15px;
     width: 100%;
-    height: 100%;
+    height: 35px;
+    margin-bottom:10px;
     &:hover{
       border-color: #c0c4cc;
     }

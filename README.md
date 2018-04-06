@@ -24,7 +24,7 @@ import lazyLoadList from 'vue-lazy-load-list';
 Vue.use(lazyLoadList);
 ```
 
-## Used in componet
+## Used in component
 
 ```
 <lazy-load-list :data="data"></lazy-load-list>
