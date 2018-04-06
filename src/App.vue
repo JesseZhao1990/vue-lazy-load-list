@@ -4,6 +4,7 @@
     <demo1/>
     <demo2/>
     <demo3/>
+    <demo4/>
   </div>
 </template>
 
@@ -11,13 +12,15 @@
 import demo1 from './pages/demo1.vue';
 import demo2 from './pages/demo2.vue';
 import demo3 from './pages/demo3.vue';
+import demo4 from './pages/demo4.vue';
 
 export default {
   name: 'app',
   components:{
     demo1,
     demo2,
-    demo3
+    demo3,
+    demo4
   },
   data () {
     return {

@@ -11,5 +11,7 @@ export const m = {
   exampleTwo: '4.2示例2',
   exampleTwo_txt: '下面这个示例是lazy模式,你可以打开控制台对比此模式和前一个demand模式的例子之间的dom结构的差异',
   exampleTwo_pleaseholder: '请输入你想搜索的区域',
-
+  exampleThree: '4.3 示例3',
+  exampleThree_txt: '不管你的数据结构有多深，只要你把插槽的样式处理好，特别是每层的缩进，组件就能完美的渲染出来。此处需要注意一下，你的数据有多少层级，你需要写多少个插槽。插槽的名字是数字，此数字代表了插槽的层级。详细情况看下面这个例子',
+  exampleThree_pleaseholder: '请输入关键字进行搜索',
 }
