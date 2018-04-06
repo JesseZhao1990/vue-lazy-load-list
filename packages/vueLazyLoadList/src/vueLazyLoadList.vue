@@ -55,6 +55,11 @@ export default {
     hasSearchInput:{
       type: Boolean,
       default: true
+    },
+
+    placeholder:{
+      type: String,
+      default: 'please enter keywords for search'
     }
   },
 
@@ -137,7 +142,7 @@ export default {
 
     const search = h("input",{
       attrs: {
-        placeholder:'请输入关键字进行搜索',
+        placeholder: this.placeholder,
       },
       class: {
         'vl-search': true,

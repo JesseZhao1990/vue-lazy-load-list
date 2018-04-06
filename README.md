@@ -46,6 +46,7 @@ Vue.use(lazyLoadList);
 | tag | String | no | ————| ‘div’ | dom name of list wrap |
 | itemTag | String | no | ———— | ‘div’ | dom name of item |
 | hasSearchInput | Boolean | no | ———— | true | whether the search input display |
+| placeholder  |  String | no | ————  | 'please enter keywords' |  the placeholder of search input  |
 
 ## Event
 | props      |      type    | requred |   optional  |  default  | details |

@@ -47,6 +47,7 @@ Vue.use(lazyLoadList);
 | tag | String | 否 | ————| ‘div’ | 定义列表包裹元素的tag名称 |
 | itemTag | String | 否 | ———— | ‘div’ | 定义列表的tag |
 | hasSearchInput | Boolean | 否 | ———— | true | 是否有搜索框 |
+| placeholder  |  String | 否 | ————  | 'please enter keywords' |  搜索框的placeholder  |
 
 ## 事件
 | props      |      type    | requred |   optional  |  default  | details |

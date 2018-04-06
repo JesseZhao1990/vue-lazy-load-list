@@ -13,6 +13,7 @@
           mode="lazy"
           :searchKeys="searchKeys"
           :hasSearchInput = "true"
+          :placeholder = "$t('m.exampleTwo_pleaseholder')"
           :data="dataList"
           listHeight="210"
           :itemHeight="30"
@@ -40,6 +41,8 @@ const demoCode = '<template>\n'+
 '    <lazy-load-list\n'+
 `      mode="lazy"          // see here, this line  \n ` +
 '      :searchKeys="searchKeys"\n'+
+'      :hasSearchInput = "true"\n'+
+'      :placeholder = "please enter region what do you want to search"\n'+
 '      :data="dataList"\n'+
 '      listHeight="210"\n'+
 '      :itemHeight="30"\n'+
