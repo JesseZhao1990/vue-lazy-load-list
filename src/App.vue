@@ -3,18 +3,21 @@
     <exam-header></exam-header>
     <demo1/>
     <demo2/>
+    <demo3/>
   </div>
 </template>
 
 <script>
 import demo1 from './pages/demo1.vue';
 import demo2 from './pages/demo2.vue';
+import demo3 from './pages/demo3.vue';
 
 export default {
   name: 'app',
   components:{
     demo1,
     demo2,
+    demo3
   },
   data () {
     return {

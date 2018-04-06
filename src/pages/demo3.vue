@@ -1,9 +1,7 @@
 <template>
 <div>
-    <h2>{{$t('m.example')}}</h2>
-    {{$t('m.exampleExplain')}}
-    <h3>{{$t('m.exampleOne')}}</h3>
-    <p>{{$t('m.exampleOne_txt')}}</p>
+    <h3>{{$t('m.exampleTwo')}}</h3>
+    <p>{{$t('m.exampleTwo_txt')}}</p>
     <div class="demo">
       <div>
         <pre>
@@ -12,6 +10,7 @@
       </div>
       <div>
         <lazy-load-list
+          mode="lazy"
           :searchKeys="searchKeys"
           :hasSearchInput = "true"
           :data="dataList"
@@ -39,6 +38,7 @@ import {mockData} from '../mock/demo2.js';
 const demoCode = '<template>\n'+
 '  <div>\n'+
 '    <lazy-load-list\n'+
+`      mode="lazy"          // see here, this line  \n ` +
 '      :searchKeys="searchKeys"\n'+
 '      :data="dataList"\n'+
 '      listHeight="210"\n'+
